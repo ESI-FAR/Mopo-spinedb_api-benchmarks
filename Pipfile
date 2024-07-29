@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pyinstrument = "*"
+spinedb-api = {file = "Spine-Database-API", editable = true}
+scalene = "*"
+tuna = "*"
+yappi = "*"
+pyperf = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
