@@ -11,6 +11,12 @@ https://docs.python.org/3.12/library/profile.html
 - tuna
   https://github.com/nschloe/tuna
 
+#### Usage
+`python -m cProfile -o profiles/FILENAME.pstats script.py script_args`
+
+`tuna profiles/FILENAME.pstats`, or
+`snakeviz profiles/FILENAME.pstats`
+
 ### `yappi`
 https://github.com/sumerc/yappi/tree/master
 
@@ -20,6 +26,12 @@ https://github.com/sumerc/yappi/tree/master
 - tuna
   https://github.com/nschloe/tuna
 
+#### Usage
+`yappi -o profiles/FILENAME.pstats script.py script_args`
+
+`tuna profiles/FILENAME.pstats`, or
+`snakeviz profiles/FILENAME.pstats`
+
 ## Sampling (statistical)
 ### `py-spy`
 https://github.com/benfred/py-spy
@@ -27,6 +39,9 @@ https://github.com/benfred/py-spy
 
 ### `scalene`
 https://github.com/plasma-umass/scalene
+
+#### Usage
+`scalene --cpu-sampling-rate 0.001 script.py script_args`
 
 ### `pyinstrument`
 https://github.com/joerick/pyinstrument
@@ -41,6 +56,9 @@ https://github.com/joerick/pyinstrument
   https://github.com/jiffyclub/snakeviz
 - tuna
   https://github.com/nschloe/tuna
+
+#### Usage
+`pyinstrument -o profiles/FILENAME.pstats -r pstats script.py script_args`
 
 ## Omitted
 ### Linux Perf \w Python 3.12
