@@ -11,6 +11,7 @@ tuna = "*"
 yappi = "*"
 pyperf = "*"
 snakeviz = "*"
+pyprof2calltree = "*"
 
 [dev-packages]
 

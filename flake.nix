@@ -11,6 +11,7 @@
         #livereload
       ];
       deps = with pkgs; [
+        kcachegrind
         pipenv
         postgresql
         py-spy
