@@ -11,11 +11,16 @@
         #livereload
       ];
       deps = with pkgs; [
+        fontconfig
+        freetype
         kcachegrind
+        libxkbcommon
         pipenv
         postgresql
         py-spy
         sqlite
+        xorg.libX11
+        xorg.libX11.dev
 
         (this-py.withPackages py-deps)
       ];
@@ -25,11 +30,12 @@
 
       # Environment variables
       # fixes libstdc++ issues and libgl.so issues
-      #LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/:${pkgs.glib.out}/lib/:${pkgs.qt6.full.out}/lib/";
-      LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/";
+      #LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/:${pkgs.glib.out}/lib/:${pkgs.qt6.full.out}/lib/:${pkgs.fontconfig.lib}/lib/";
+      LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath deps}:${pkgs.stdenv.cc.cc.lib}/lib/:/run/opengl-driver/lib/:${pkgs.glib.out}/lib/:${pkgs.qt6.full.out}/lib/:${pkgs.fontconfig.lib}/lib/";
+      #LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/:${pkgs.glib.out}/lib/";
 
       # fixes xcb issues :
-      #QT_PLUGIN_PATH="${pkgs.qt6.qtbase}/${pkgs.qt6.qtbase.qtPluginPrefix}";
+      QT_PLUGIN_PATH="${pkgs.qt6.qtbase}/${pkgs.qt6.qtbase.qtPluginPrefix}";
       };
     });
 }
