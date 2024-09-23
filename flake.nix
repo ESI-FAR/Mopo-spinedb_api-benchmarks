@@ -15,6 +15,7 @@
         pipenv
         postgresql
         py-spy
+        sqlite
 
         (this-py.withPackages py-deps)
       ];

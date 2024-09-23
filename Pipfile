@@ -12,6 +12,7 @@ yappi = "*"
 pyperf = "*"
 snakeviz = "*"
 pyprof2calltree = "*"
+rich = "*"
 
 [dev-packages]
 
