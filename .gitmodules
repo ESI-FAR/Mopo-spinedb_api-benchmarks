@@ -1,3 +1,6 @@
 [submodule "Spine-Database-API"]
 	path = Spine-Database-API
 	url = git@github.com:spine-tools/Spine-Database-API.git
+[submodule "Spine-Toolbox"]
+	path = Spine-Toolbox
+	url = git@github.com:spine-tools/Spine-Toolbox.git
