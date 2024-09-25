@@ -3,3 +3,5 @@ databases/*
 
 # nix
 .direnv
+
+profiles/*
