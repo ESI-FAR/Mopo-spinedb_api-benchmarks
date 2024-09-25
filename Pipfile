@@ -13,6 +13,7 @@ pyperf = "*"
 snakeviz = "*"
 pyprof2calltree = "*"
 rich = "*"
+spinetoolbox = {file = "Spine-Toolbox", editable = true}
 
 [dev-packages]
 
