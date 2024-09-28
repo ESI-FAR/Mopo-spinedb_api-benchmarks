@@ -13,8 +13,11 @@
       deps = with pkgs; [
         fontconfig
         freetype
+        gcc
+        graphviz
         kcachegrind
         libxkbcommon
+        libz
         pipenv
         postgresql
         py-spy
