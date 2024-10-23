@@ -39,4 +39,4 @@ struct_scalar = pa.scalar({
 
 table = pa.Table.from_arrays([pa.array([struct_scalar])], names=["data"])
 
-pq.write_table(table, "./data.parquet")
+pq.write_table(table, "../databases/data.parquet")

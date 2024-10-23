@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "94d19de78f8e05cf39dce1bd3b94c84c7a61d913fece25adc8512ee2a6ee7d1d"
+            "sha256": "7919b396bedf0e6108ee2d8ae0bdcaf39295d6adefdb1a9bee3acac18179d7bd"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,55 @@
         ]
     },
     "default": {
+        "adbc-driver-manager": {
+            "hashes": [
+                "sha256:00847c7a3f300450caa3bb924bf3f2b6a7adee70a5bc773d2b28b9f2e04775c5",
+                "sha256:0a8d40800e49f554adfc221b6bffe9c082e9a390cbc8594783cefc63d314377b",
+                "sha256:116855fc774c09a8131f76dc12111c435f94945f900881a1f49c23ebb3a737de",
+                "sha256:128c6c6b0b32024ea08c80ac5573ee59aaeece3624c5daef816b2c1f899f7d98",
+                "sha256:203284f0997ed55ac7196b55eef07adad912fa5182b0d10e025a9b4e1a09fb85",
+                "sha256:244e4848772528ea574367479f1fe19629ef732d6f7f3f3bd520b562e04caa78",
+                "sha256:272f95713417173f4604fb8a4c5efe58f536406e03f46ec3d300dc2a0ff62ebf",
+                "sha256:291f2a18ab99b6b1803541f55f82b50f06c836c51e68c3431bbdf81595e92cd9",
+                "sha256:387ff29f0dd2d23a87c7e51c2d724cdd60733c4da2edd32c65fcd828a7623e34",
+                "sha256:3a45bb119b7f842444c9a2489adae8a4dc233e72b0fe0c9019494382a52d7bf9",
+                "sha256:497e48c10e4a4c57a005557b36e63cee611418708d6f9aa4595812d5638704a7",
+                "sha256:618aa46f6f4a4584c831774cb2ef14b944e5e598cab28883e15ab6fc7d48c1f3",
+                "sha256:73d551a168d72ef676476ecc0044a5927bc7b38c7415875add11370038813fbc",
+                "sha256:74da5cad36f54e2438804b11c501e762a151bf4f360dcc5b47f0d760486fd26d",
+                "sha256:7873e061e254a4a22c4a6d053d043fd3849d73db4fc5efd5b6b440d0f3438e81",
+                "sha256:859e7e796d9b4d820e92913356633f1596a9f446f6fbdf57310f5311eb4467d8",
+                "sha256:9850d100a52d3b41a80100bc4d797809d171cdc3edf96f835b94fd668f56f98b",
+                "sha256:a0d9ebee29573ae68b22fa2bb98414ebac905cc525cbcb07d1304fab989a3c69",
+                "sha256:a8b86c12c7cb3d474e1714957545374c659fa9dc97419e13ba3a99fff1df9285",
+                "sha256:aa76575dc5aff286d6ea77f368bf853975a65cdabe561e4708d05cce27ab7bf1",
+                "sha256:ac22f2f49a54d129b1bbdb11497258698e931d55c9e9e90fe01f15069cf0d9a4",
+                "sha256:b66ca0a364f50cb09d8e016c31c67976863c2dfc6878ff9fe2e1760f0ac944bb",
+                "sha256:bf4b7f6a9c17e0163fd5dba14c1c92e4cb0102a9a8d71c0c4bead9b3080fc285",
+                "sha256:c180ded8c7dcd8b85b49ab68b332effcd72cce7144c21cfa576e6110414f0fae",
+                "sha256:c9701be8a7c4be32c87663746a753bbc15f6a53a70ae9c02f2c3604b8f49b2d6",
+                "sha256:d7c4326e03224aa99faecdf3f46839faf6103800740fa70bc5a5e0749f181524",
+                "sha256:e2325af2c0d44145857bd4b947248cef317cb46073d36c212b68867769919f17",
+                "sha256:f1f034dbb8ab712f349e1f0d05fe5b6a80b82adc5caad26e19fbf1f0f8f96d20",
+                "sha256:f445b353416f1d5ba8cc827f71528d74477ec8978a43d9630335da052f54cd80"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.2.0"
+        },
+        "adbc-driver-sqlite": {
+            "hashes": [
+                "sha256:0a7d34e94b9b32fffd3d456369c696a134366476879a23ab5783b381b4a6d2a2",
+                "sha256:3c40ae78e5e7df2935434646809617dd52e3406320be087e544251b6a5dcdbc9",
+                "sha256:4c1b068fd40af918fd8c773ac7363670261c2547b811405b129c4d90cd2f129b",
+                "sha256:9d7fb6df4810d9f9b6aa9db5f35fef52fd88ed71d8a147c7649a33e3de875bcd",
+                "sha256:a7a0d9c8ffe47b4b502f731e3a128a4f0bd7795028ae146755add1e27490d490",
+                "sha256:fc535701c7dffa233a67b58303891c4534d8b4f812442ba59eb7b030fc164699"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==1.2.0"
+        },
         "alembic": {
             "hashes": [
                 "sha256:203503117415561e203aa14541740643a611f641517f0209fcae63e9fa09f1a2",
@@ -544,6 +593,14 @@
                 "sha256:ff835906f84451e143f31c4ce8ad73d83ef4476b944c2a2da91aec8b649570e1"
             ],
             "version": "==3.3.0"
+        },
+        "importlib-resources": {
+            "hashes": [
+                "sha256:980862a1d16c9e147a59603677fa2aa5fd82b87f223b6cb870695bcfce830065",
+                "sha256:ac29d5f956f01d5e4bb63102a5a19957f1b9175e45649977264a1416783bb717"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==6.4.5"
         },
         "ipykernel": {
             "hashes": [
