@@ -15,7 +15,7 @@ def get_datapoint(DB_URL):
 "
 
 echo
-echo "=== Benchmarking ADBC. ==="
+echo "=== Benchmarking ADBC by ID. ==="
 for db in \
   ../databases/BB_data.sqlite \
   ../databases/BB_data_stripped.sqlite \

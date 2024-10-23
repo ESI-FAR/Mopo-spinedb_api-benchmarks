@@ -13,7 +13,9 @@ echo
 echo "=== Benchmarking SpineDB API by entity name. ==="
 for db in \
   ../databases/BB_data.sqlite \
+  ../databases/BB_data_stripped.sqlite \
   ../databases/ramdisk/BB_data.sqlite \
+  ../databases/ramdisk/BB_data_stripped.sqlite \
   ; do
   echo
   echo "Using $db"
