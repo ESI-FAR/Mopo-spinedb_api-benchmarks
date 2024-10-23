@@ -12,7 +12,8 @@ def get_datapoint(DB_URL):
     return json.loads(table[0][0])['scen'][-1][-1]
 "
 
-echo "Benchmarking SQlite by ID without nesting."
+echo
+echo "=== Benchmarking SQlite by ID without nesting. ==="
 for db in \
   ../databases/BB_data_stripped_flat.sqlite \
   ../databases/ramdisk/BB_data_stripped_flat.sqlite \

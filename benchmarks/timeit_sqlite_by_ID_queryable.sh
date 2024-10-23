@@ -13,7 +13,8 @@ def get_datapoint(DB_URL):
     return table[0][0]
 "
 
-echo "Benchmarking SQlite by ID with queryable JSON."
+echo
+echo "=== Benchmarking SQlite by ID with queryable JSON. ==="
 for db in \
   ../databases/BB_data_stripped_queryable.sqlite \
   ../databases/ramdisk/BB_data_stripped_queryable.sqlite \

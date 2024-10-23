@@ -13,7 +13,8 @@ def get_datapoint(DB_URL):
     return json.loads(table[0][0])['data'][2][1]['data'][-1][-1]
 "
 
-echo "Benchmarking SQlite by ID."
+echo
+echo "=== Benchmarking SQlite by ID. ==="
 for db in \
   ../databases/BB_data.sqlite \
   ../databases/BB_data_stripped.sqlite \

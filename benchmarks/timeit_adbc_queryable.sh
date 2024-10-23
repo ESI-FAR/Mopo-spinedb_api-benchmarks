@@ -14,7 +14,8 @@ def get_datapoint(DB_URL):
     return table[0][0].as_py()
 "
 
-echo "Benchmarking ADBC with a queryable JSON structure."
+echo
+echo "=== Benchmarking ADBC with a queryable JSON structure. ==="
 for db in \
   ../databases/BB_data.sqlite \
   ../databases/BB_data_stripped.sqlite \

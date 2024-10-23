@@ -14,7 +14,8 @@ def get_datapoint(DB_URL):
     return json.loads(table['value'][0].as_py())['data'][2][1]['data'][-1][-1]
 "
 
-echo "Benchmarking ADBC."
+echo
+echo "=== Benchmarking ADBC. ==="
 for db in \
   ../databases/BB_data.sqlite \
   ../databases/BB_data_stripped.sqlite \
