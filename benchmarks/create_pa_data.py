@@ -15,6 +15,7 @@ parsed_dict = item["parsed_value"].to_dict()
 
 data = {}
 
+# create a dictionary of the data
 for index, name in enumerate(["f00", "avg", "scen", "median"]):
     data[name] = parsed_dict["data"][index][1]["data"]
 
