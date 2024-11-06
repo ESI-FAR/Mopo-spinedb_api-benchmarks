@@ -4,7 +4,8 @@ import timeit
 
 
 def get_datapoint(DB_URL):
-    return pq.read_table(DB_URL)['data'][0][2][-1][1]
+    #print(pq.read_table(DB_URL)['data'][0]['scen'][-1][1])
+    return pq.read_table(DB_URL)['data'][0]['scen'][-1][1]
 "
 
 echo

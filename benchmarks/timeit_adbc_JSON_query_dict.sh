@@ -11,18 +11,15 @@ def get_datapoint(DB_URL):
             cur.execute('SELECT json_extract(parameter_value.value, \'$.scen[#-1].v\') FROM parameter_value WHERE id=256351;')
             table = cur.fetch_arrow_table()
 
+    #print(table[0][0].as_py())
     return table[0][0].as_py()
 "
 
 echo
-echo "=== Benchmarking ADBC with a queryable JSON structure. ==="
+echo "=== Benchmarking ADBC by ID, querying JSON dict. ==="
 for db in \
-  ../databases/BB_data.sqlite \
-  ../databases/BB_data_stripped.sqlite \
-  ../databases/BB_data_stripped_queryable.sqlite \
-  ../databases/ramdisk/BB_data.sqlite \
-  ../databases/ramdisk/BB_data_stripped.sqlite \
-  ../databases/ramdisk/BB_data_stripped_queryable.sqlite \
+  ../databases/BB_data_stripped_flat_dict.sqlite \
+  ../databases/ramdisk/BB_data_stripped_flat_dict.sqlite \
   ; do
   echo
   echo "Using $db"
