@@ -321,6 +321,7 @@ Data is stored in a `pyarrow` table and saved in Parquet format.
 
 Retrieving a single value from the `BB_data` database, the `parameter_value` of `entity_name='flow__node_wind__80NO'` and `id=256351`, from which we look at the _third time series_ and pick the _last_ item.
 
+Each benchmarking script contains a commented-out `print` statement, (not) printing out the retrieved value. This is for debugging purposes, since `timeit` does not differentiate between successful and unsuccessful data retrievals; it only returns the time it took.
 
 #### SpineDB_API by Entity Name
 
@@ -510,3 +511,47 @@ Retrieving a single value from the `BB_data` database, the `parameter_value` of 
 
 ##### Ramdisk
 - data.parquet 4.91 ms
+
+## Discussion
+
+Not surprisingly, retrieving data from ramdisk is faster than from SSD. Also, finding data in large datasets takes longer than sifting through smaller ones.
+
+### SpineDB API
+
+First we compare reading in the data via the SpineDB API. Retrieving a single data point takes about 250 ms. Getting the datapoint by `entity_name` from the large database is a bit faster than finding the datapoint by `ID`. This advantage is negligible or even reversed when dealing with a reduced dataset. It is not clear to me why this is the case.
+
+While the influence of I/O is apparent, it is by far eclipsed by various operations that happen within `spinedb_api`. Profiling shows that loops, type checks and type conversions take up most of this time.
+
+### SQLite
+
+By directly querying the SQLite database, we circumvent all data wrangling that happens within SpineDB API. By this the data retrieval time is about quartered to bout 65 ms. I/O speed has an influence as well, but the difference is now much smaller. I do not know why this is the case.
+
+Here, we still need to retrieve the full dataset - four tables of time series - in binary format from the SQLite database, convert it to JSON and then query _this_ data.
+
+Reducing nesting within dataset shaves off an additional 10% of the time.
+
+> Advice: Data wrangling within SpineDB API accounts for a large overhead. Find an as flat as possible data format that is type-defined, so these checks happen during ingestion of the data, not during runtime of spine tools.
+
+### Queryable JSON
+
+When storing the data in a queryable JSON format, we don't have to retrieve the full binary string, but can search _directly_ within the stored data. Examples of this queryable JSON format could be a _list_, or a _dictionary_.
+
+The time saved by querying JSON is dramatic, around 10 ms (queried) vs 60 ms (read in full). The list data format is more performant and has a smaller file size than the dictionary format.
+
+> Advice: Use a queryable JSON list to store data.
+
+### ADBC
+
+Reading the data into memory-mapped Apache `arrow` format via the Arrow DataBase Connectivity (ADBC) induces some overhead 17 ms (adbc) vs 12 ms (single data point). However, working with more than a single datapoint is much more convenient with an `arrow` table. Furthermore, this data format is easily convertable into `numpy` or `pandas` formats. This approach could make quite some data-handling and -conversion code within SpineDB API obsolete.
+
+> Advice: Read data into an `arrow` table for flexibility and custom code removal.
+
+### Parquet
+
+Storing the data in `parquet` format makes it very straight-forward to read into an `arrow` table. This is also by far the fastest approach, it takes less than half the time (< 5 ms) than the fastest approaches discussed above. Furthermore, due to compression the database size is reduced to less than 20% compared to SQLite.
+
+This format is, however, meant for data archival, not actively working with the data. A database has to be "defragmented" after certain operations to shrink it's size and retain speed. This is comparable to the SQLite `vacuum` operation.
+
+> Advice: ?
+>
+> How often would "defragmentation" be necessary? What other drawbacks does `parquet` have?
